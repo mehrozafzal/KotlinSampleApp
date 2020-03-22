@@ -77,8 +77,7 @@ class ViewModelTest {
 
     }
 
-
-    @Ignore
+    
     @Test
     fun shouldRunCategoryFailureResponse() {
         testSingle = Single.error(Throwable())
