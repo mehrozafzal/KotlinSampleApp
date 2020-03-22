@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_xxxHuge"
+        android:layout_marginStart="@dimen/size_xNormal"
+        android:layout_marginEnd="@dimen/size_xNormal"
+        android:layout_marginTop="@dimen/size_small"
+        app:cardCornerRadius="4dp"
+        android:elevation="@dimen/size_normal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/itemRecyclerView_image"
+                android:layout_width="@dimen/size_xxxHuge"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"
+                android:src="@drawable/dummy_food_image" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/size_small"
+                android:layout_marginEnd="@dimen/size_small"
+                android:layout_toEndOf="@+id/itemRecyclerView_image"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/itemRecyclerView_name"
+                    style="@style/TextView_GerberaBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily Deli Co."
+                    android:layout_marginTop="@dimen/size_small"
+                    android:textColor="@color/colorGray2"
+                    android:textSize="@dimen/font_size_large" />
+
+                <TextView
+                    android:id="@+id/itemRecyclerView_description"
+                    style="@style/TextView_Gerbera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/size_small"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="Daily Deli Co. is a very good and neat restaurant with amazing food and love."
+                    android:textSize="@dimen/caption" />
+
+                <TextView
+                    android:id="@+id/itemRecyclerView_price"
+                    style="@style/TextView_GerberaBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="0.81 EUR"
+                    android:textSize="@dimen/font_size_xLarge" />
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

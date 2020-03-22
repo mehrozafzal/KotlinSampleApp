@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_category_drop_down_name"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_xxHuge"
+    android:textColor="@color/colorWhite"
+    android:text="Drink and Beverages"
+    android:textSize="@dimen/font_size_xLarge"
+    android:gravity="center_vertical"
+    android:padding="@dimen/size_small"
+    android:lines="1"
+    android:ellipsize="end"
+    android:background="@color/colorPrimary"
+    style="@style/TextView_Gerbera"/>

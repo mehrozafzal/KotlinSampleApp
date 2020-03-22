@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <Spinner
+            android:id="@+id/activityMain_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_xHuge"
+            android:layout_margin="@dimen/size_xLarge"
+            android:background="@drawable/bg_spinner" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activityMain_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/activityMain_spinner"
+            tools:listitem="@layout/item_product"
+            android:layoutAnimation="@anim/layout_animation" />
+
+    </RelativeLayout>
+</layout>

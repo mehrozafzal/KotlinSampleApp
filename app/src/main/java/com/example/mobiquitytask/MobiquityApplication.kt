@@ -2,48 +2,56 @@ package com.example.mobiquitytask
 
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
+import com.example.mobiquitytask.di.component.AppComponent
 import com.example.mobiquitytask.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
+import io.github.inflationx.viewpump.ViewPump
 import javax.inject.Inject
 
 
-class MobiquityApplication : MultiDexApplication(), HasAndroidInjector {
-
+open class MobiquityApplication : MultiDexApplication(), HasAndroidInjector {
 
     companion object {
         private lateinit var instance: MobiquityApplication
-        private var wasInBackground: Boolean = false
         fun getInstance(): MobiquityApplication {
             return instance
         }
-
     }
 
-    @Inject
-    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+    lateinit var appComponent: AppComponent
 
     @Inject
-    lateinit var mCalligraphyConfig: CalligraphyConfig
+    open lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+    @Inject
+    lateinit var viewPump: ViewPump
 
     override fun onCreate() {
         super.onCreate()
         instance = this
         MultiDex.install(this)
-        createDaggerComponent()
-        CalligraphyConfig.initDefault(mCalligraphyConfig)
+        val appComponent = createDaggerComponent()
+        appComponent.inject(this)
+        ViewPump.init(viewPump)
     }
 
-    private fun createDaggerComponent() {
-        DaggerAppComponent.builder()
+    open fun createDaggerComponent(): AppComponent {
+        return DaggerAppComponent.builder()
             .application(this)
             .build()
-            .inject(this)
     }
 
     override fun androidInjector(): AndroidInjector<Any> {
         return androidInjector
+    }
+
+    /**
+     * Visible only for testing purposes.
+     */
+    // @VisibleForTesting
+    open fun setTestComponent(appComponent: AppComponent) {
+        this.appComponent = appComponent
     }
 }

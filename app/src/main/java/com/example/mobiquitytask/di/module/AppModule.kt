@@ -3,65 +3,79 @@ package com.example.mobiquitytask.di.module
 import android.app.Application
 import android.content.Context
 import com.example.mobiquitytask.R
-
+import com.example.mobiquitytask.data.manager.app.AppDataManager
+import com.example.mobiquitytask.data.manager.app.IAppDataManager
+import com.example.mobiquitytask.data.manager.remote.RemoteManager
+import com.example.mobiquitytask.data.manager.remote.RemoteManagerImpl
+import com.example.mobiquitytask.data.remote.ApiEndPoints
+import com.example.mobiquitytask.utils.rx.AppSchedulerProvider
+import com.example.mobiquitytask.utils.rx.SchedulerProvider
 import com.google.gson.Gson
 import com.synavos.iapps.di.ApiInfo
-import javax.inject.Singleton
 import dagger.Module
 import dagger.Provides
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
+import io.github.inflationx.calligraphy3.CalligraphyConfig
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor
+import io.github.inflationx.viewpump.ViewPump
+import javax.inject.Singleton
 
 
 @Module
-class AppModule {
+open class AppModule {
 
 
     @Provides
     @ApiInfo
-    fun provideApiKey(): String {
-//        return BuildConfig.API_KEY
-        return "BuildConfig.API_KEY"
+    open fun provideApiKey(): String {
+        return ApiEndPoints.BASE_URL
     }
-/*  @Provides
-    @Singleton
-    AppDatabase provideAppDatabase(@DatabaseInfo String dbName, Context context) {
-        return Room.databaseBuilder(context, AppDatabase.class, dbName).fallbackToDestructiveMigration()
-                .build()
-    }*/
+
 
     @Provides
     @Singleton
-    fun provideCalligraphyDefaultConfig(): CalligraphyConfig {
-        return  CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
+    open fun provideCalligraphyDefaultConfig(): ViewPump {
+        return ViewPump.builder()
+            .addInterceptor(
+                CalligraphyInterceptor(
+                    CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/Gerbera.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+                )
+            )
+            .build()
     }
 
     @Provides
     @Singleton
-    fun provideContext(application: Application): Context {
+    open fun provideContext(application: Application): Context {
         return application
     }
 
 
-/*    @Provides
+    @Provides
     @Singleton
-    fun provideApiManager(remotemanager: RemoteManagerImpl): RemoteManager {
+    open fun provideApiManager(remotemanager: RemoteManagerImpl): RemoteManager {
         return remotemanager
-    }*/
+    }
+
+    @Provides
+    @Singleton
+    open fun provideAppManager(appDataManager: AppDataManager): IAppDataManager {
+        return appDataManager
+    }
 
 
     @Provides
     @Singleton
-    fun provideGsonConverter(): Gson {
+    open fun provideGsonConverter(): Gson {
         return Gson()
     }
 
 
-  /*  @Provides
-    fun provideSchedulerProvider(): SchedulerProvider {
+    @Provides
+    open fun provideSchedulerProvider(): SchedulerProvider {
         return AppSchedulerProvider()
-    }*/
+    }
 
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.mobiquitytask.view.category.productDetail.DetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/fragmentDetail_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_xxxxxxHuge"
+            android:background="@drawable/dummy_food_image"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/fragmentDetail_price"
+            style="@style/TextView_GerberaBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/fragmentDetail_image"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/size_xNormal"
+            android:layout_marginBottom="@dimen/size_xNormal"
+            android:background="@drawable/bg_price"
+            android:elevation="12dp"
+            android:padding="@dimen/size_normal"
+            android:text="0.81 EUR"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/fragmentDetail_name"
+            style="@style/TextView_GerberaBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragmentDetail_image"
+            android:layout_marginEnd="100dp"
+            android:padding="@dimen/size_normal"
+            android:textColor="@color/colorGray3"
+            android:text="Oven Roasted Chicken"
+            android:textSize="@dimen/font_size_xxxLarge" />
+
+        <ImageView
+            android:id="@+id/fragmentDetail_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="@{()->viewModel.onDetailCloseBtnClicked()}"
+            android:padding="@dimen/size_xTiny"
+            android:src="@drawable/ic_close_black_24dp"
+            android:tint="@color/colorWhite"
+            android:background="@drawable/bg_close"
+            />
+    </RelativeLayout>
+</layout>

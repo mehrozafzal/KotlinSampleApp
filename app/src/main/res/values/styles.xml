@@ -8,4 +8,35 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextAppearance.Text.Regular" parent="android:TextAppearance">
+        <item name="fontPath">fonts/source-sans-pro/SourceSansPro-Regular.ttf</item>
+    </style>
+
+    <style name="TextAppearance.Text.Bold" parent="android:TextAppearance">
+        <item name="fontPath">fonts/source-sans-pro/SourceSansPro-Bold.ttf</item>
+    </style>
+
+    <style name="TextAppearance.Text.Light" parent="android:TextAppearance">
+        <item name="fontPath">fonts/source-sans-pro/SourceSansPro-Light.ttf</item>
+    </style>
+
+    <style name="TextAppearance.Text.Italic" parent="android:TextAppearance">
+        <item name="fontPath">fonts/source-sans-pro/SourceSansPro-Italic.ttf</item>
+    </style>
+
+    <style name="AppTheme.Widget.TextView" parent="android:Widget.Holo.Light.TextView">
+        <item name="fontPath">fonts/Gerbera-Bold.ttf</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TextView_GerberaBold" parent="android:Widget.Holo.Light.TextView">
+        <item name="fontPath">fonts/Gerbera-Bold.ttf</item>
+    </style>
+
+    <style name="TextView_Gerbera" parent="android:Widget.Holo.Light.TextView">
+        <item name="fontPath">fonts/Gerbera.ttf</item>
+    </style>
+
+
+
 </resources>

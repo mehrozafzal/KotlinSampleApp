@@ -29,6 +29,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     dataBinding {
         enabled = true
     }
@@ -41,12 +45,16 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
     implementation "androidx.core:core-ktx:$rootProject.kotlinCore"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
 
     //multiDex
     implementation "com.android.support:multidex:$rootProject.multiDexVersion"
 
     // font
-    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+    implementation "io.github.inflationx:calligraphy3:$rootProject.calligraphyVersion"
+    implementation "io.github.inflationx:viewpump:$rootProject.viewPumpVersion"
+
 
     // image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
@@ -59,6 +67,8 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
     implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    kaptTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
@@ -66,6 +76,7 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttpVersion"
+    testImplementation "com.squareup.okhttp3:okhttp:$rootProject.okHttpVersion"
 
     // reactive
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
@@ -77,7 +88,15 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.kotlinLifeCycleViewModel"
 
     //testing
+    testImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.okHttpVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$rootProject.mockitoVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockito_kotlin_version"
     testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.testingCore"
+    testImplementation 'org.robolectric:robolectric:4.2.1'
+
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidXjunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+
 }

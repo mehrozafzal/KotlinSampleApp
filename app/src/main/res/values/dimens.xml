@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- generic dimen for views -->
+    <dimen name="size_xxxxxxxHuge">300dp</dimen>
+    <dimen name="size_xxxxxxHuge">250dp</dimen>
+    <dimen name="size_xxxxxHuge">200dp</dimen>
+    <dimen name="size_xxxxHuge">120dp</dimen>
+    <dimen name="size_xxxHuge">100dp</dimen>
+    <dimen name="size_xxHuge">80dp</dimen>
+    <dimen name="size_xHuge">60dp</dimen>
+    <dimen name="size_huge">40dp</dimen>
+    <dimen name="size_xLarge">30dp</dimen>
+    <dimen name="size_large">24dp</dimen>
+    <dimen name="size_xNormal">20dp</dimen>
+    <dimen name="size_normal">14dp</dimen>
+    <dimen name="size_small">10dp</dimen>
+    <dimen name="size_xTiny">4dp</dimen>
+    <dimen name="size_tiny">2dp</dimen>
+
+    <!-- typical font sizes -->
+    <dimen name="title">15sp</dimen>
+    <dimen name="caption">11sp</dimen>
+    <dimen name="font_size_xSmall">13sp</dimen>
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_xMini">10sp</dimen>
+    <dimen name="font_size_mini">9sp</dimen>
+    <dimen name="font_size_tiny">8sp</dimen>
+    <dimen name="font_size_large">15sp</dimen>
+    <dimen name="font_size_xLarge">17sp</dimen>
+    <dimen name="font_size_xxLarge">18sp</dimen>
+    <dimen name="font_size_xxxLarge">20sp</dimen>
+
+</resources>

@@ -3,7 +3,7 @@ package com.example.mobiquitytask.di.component
 import android.app.Application
 import com.example.mobiquitytask.MobiquityApplication
 import com.example.mobiquitytask.di.module.AppModule
-import com.example.mobiquitytask.di.RetrofitModule
+import com.example.mobiquitytask.di.module.RetrofitModule
 import com.example.mobiquitytask.di.builder.ActivityBuilder
 import dagger.BindsInstance
 import dagger.Component
