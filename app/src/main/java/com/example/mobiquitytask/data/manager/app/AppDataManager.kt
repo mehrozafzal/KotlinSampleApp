@@ -7,10 +7,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-class AppDataManager @Inject constructor() : IAppDataManager {
+class AppDataManager @Inject constructor(remoteManager: RemoteManager) : IAppDataManager {
 
-    @Inject
-    lateinit var _remoteManager: RemoteManager
+    private var _remoteManager: RemoteManager = remoteManager
 
     override fun getRemoteManager(): RemoteManager {
         return _remoteManager

@@ -37,7 +37,7 @@ class MainViewModel(
                     }
 
                     override fun onError(e: Throwable) {
-                        restaurantLoadError.value = false
+                        restaurantLoadError.value = true
                         loading.value = false
                         setIsLoading(false)
                         helper?.showToast(ErrorParser.parseError(e))

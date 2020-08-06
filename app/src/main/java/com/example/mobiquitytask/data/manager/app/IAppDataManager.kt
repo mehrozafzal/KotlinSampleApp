@@ -4,5 +4,6 @@ import com.example.mobiquitytask.data.manager.remote.RemoteManager
 
 interface IAppDataManager {
     fun getRemoteManager(): RemoteManager
+
     //Any other managers
 }
